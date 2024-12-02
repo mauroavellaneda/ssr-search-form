@@ -1,12 +1,16 @@
-import React from 'react'
+import React from "react";
+import Home from "./page";
 
 const layout = () => {
   return (
-    <main className="font-work-sans">
-        <Navbar />
-      
-    </main>
-  )
-}
+    <html lang="en">
+      <body>
+        <main>
+          <Home />
+        </main>
+      </body>
+    </html>
+  );
+};
 
-export default layout
+export default layout;

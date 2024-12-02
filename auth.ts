@@ -1,7 +1,5 @@
-import NextAuth from 'next-auth'
+import NextAuth from "next-auth";
 
-export const { getSession } = NextAuth(
-    {
-        providers: [GitHub],
-    }
-)
+export const { getSession } = NextAuth({
+  providers: [GitHub],
+});
