@@ -8,19 +8,29 @@ const Navbar = async () => {
   console.log(session);
 
   return (
-    <div className="px-5 py-3 bg-white shadow-sm font-work-sans">
-      <nav className="flex justify-between items-center">
-        <Link href="/">
-          <Image src="/globe.svg" alt="logo" width={100} height={30} />
+    <div className="bg-gradient-to-r from-blue-500 to-blue-700 shadow-lg text-white">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-2">
+          <Image src="/globe.svg" alt="logo" width={40} height={40} />
+          <span className="text-xl font-bold">MyApp</span>
         </Link>
-        <div className="flex items-center gap-5 text-black">
+
+        {/* Navigation */}
+        <div className="flex items-center gap-5">
           {session?.user ? (
             <>
-              <Link href={`/user/${session?.user?.id}`}>
-                <span className="text-black">{session?.user?.name}</span>
+              <Link
+                href={`/user/${session?.user?.id}`}
+                className="hover:text-blue-300 transition"
+              >
+                {session?.user?.name}
               </Link>
-              <Link href="/startup/create">
-                <span>Create</span>
+              <Link
+                href="/startup/create"
+                className="hover:text-blue-300 transition"
+              >
+                Create
               </Link>
               <form
                 action={async () => {
@@ -30,9 +40,8 @@ const Navbar = async () => {
                   });
                 }}
               >
-                {" "}
-                <button>
-                  <span>Logout</span>
+                <button className="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg shadow-md transition">
+                  Logout
                 </button>
               </form>
             </>
@@ -43,7 +52,12 @@ const Navbar = async () => {
                 await signIn("github");
               }}
             >
-              <button type="submit">Login</button>
+              <button
+                type="submit"
+                className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg shadow-md transition"
+              >
+                Login
+              </button>
             </form>
           )}
         </div>
