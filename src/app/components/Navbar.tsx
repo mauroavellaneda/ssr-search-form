@@ -5,7 +5,6 @@ import { auth, signIn, signOut } from "@/auth";
 
 const Navbar = async () => {
   const session = await auth();
-  console.log(session);
 
   return (
     <div className="bg-gradient-to-r from-blue-500 to-blue-700 shadow-lg text-white">
