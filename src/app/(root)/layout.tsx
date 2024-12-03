@@ -1,5 +1,6 @@
 import React from "react";
 import Home from "./page";
+import "../globals.css";
 
 const layout = () => {
   return (

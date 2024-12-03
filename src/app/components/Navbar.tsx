@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { auth } from "@/auth";
+import { auth, signIn, signOut } from "@/auth";
 
 const Navbar = async () => {
   const session = await auth();
@@ -19,17 +19,32 @@ const Navbar = async () => {
               <Link href={`/user/${session?.id}`}>
                 <span className="text-black">{session?.user?.name}</span>
               </Link>
-              <Link href="/signup"></Link>
+              <Link href="/startup/create">
+                <span>Create</span>
+              </Link>
+              <form
+                action={async () => {
+                  "use server";
+                  await signOut({
+                    redirectTo: "/",
+                  });
+                }}
+              >
+                {" "}
+                <button>
+                  <span>Logout</span>
+                </button>
+              </form>
             </>
           ) : (
-            <button
-              onClick={async () => {
+            <form
+              action={async () => {
                 "use server";
                 await signIn("github");
               }}
             >
-              Login
-            </button>
+              <button type="submit">Login</button>
+            </form>
           )}
         </div>
       </nav>
