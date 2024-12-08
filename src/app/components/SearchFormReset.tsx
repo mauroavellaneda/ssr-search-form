@@ -2,23 +2,29 @@
 
 import { X } from "lucide-react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 const SearchFormReset = () => {
-  const reset = () => {
-    const form = document.querySelector("search-form") as HTMLFormElement;
+  const searchParams = useSearchParams();
+  const query = searchParams.get("query");
 
-    console.log(form, "form");
+  const reset = () => {
+    const form = document.querySelector(".search-form") as HTMLFormElement;
 
     if (form) {
       form.reset();
     }
   };
   return (
-    <button type="reset" onClick={reset}>
-      <Link href="/" className="search-btn text-white">
-        <X className="size-5" />
-      </Link>
-    </button>
+    <>
+      {query ? (
+        <button type="reset" onClick={reset}>
+          <Link href="/" className="search-btn text-white">
+            <X className="size-5" />
+          </Link>
+        </button>
+      ) : null}
+    </>
   );
 };
 export default SearchFormReset;
