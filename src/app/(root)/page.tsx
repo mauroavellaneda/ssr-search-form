@@ -17,9 +17,7 @@ export default async function Home({
   return (
     <div className="min-h-screen bg-gray-100">
       <Navbar />
-      <section className="pink_container">
-        <h1 className="heading">Home</h1>
-        <p className="sub-heading !max-w-3xl">Welcome to the home page</p>
+      <section className="black_container">
         <SearchForm query={query} />
       </section>
     </div>
