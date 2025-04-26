@@ -14,32 +14,9 @@ cd <project-directory>
 Install dependencies:
 npm install
 
-# or
-
-yarn install
-
-# or
-
-pnpm install
-
-# or
-
-bun install
-
 Run the development server:
 npm run dev
 
-# or
-
-yarn dev
-
-# or
-
-pnpm dev
-
-# or
-
-bun dev
 
 Open http://localhost:3000 in your browser to view the application.
 
